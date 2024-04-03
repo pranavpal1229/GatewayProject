@@ -1,4 +1,5 @@
 let numOfSwipe = 0;
+let notification = document.getElementById("messages")
 class Card {
     constructor({
       imageUrl,
@@ -132,7 +133,16 @@ class Card {
       }
 
       if(numOfSwipe == 3){
-        console.log('hi');
+        notification.style.width = '25px';
+        notification.style.height = '25px';
+        notification.style.backgroundColor = 'lightcoral';
+        notification.textContent = '1';
+        notification.style.color = 'white';
+        notification.style.border = 'none';
+        notification.style.borderRadius = '100%';
+        notification.style.position = 'absolute';
+        notification.style.marginTop = '15px';
+        notification.style.marginRight = '7px';
       }
       else{numOfSwipe += 1;}
     }
