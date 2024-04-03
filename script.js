@@ -14,6 +14,7 @@ const urls = [
 
 // variables
 let cardCount = 0;
+let swipeNum = 0;
 
 // functions
 function appendNewCard() {
