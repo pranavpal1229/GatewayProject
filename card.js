@@ -1,3 +1,4 @@
+let numOfSwipe = 0;
 class Card {
     constructor({
       imageUrl,
@@ -16,6 +17,7 @@ class Card {
     #startPoint;
     #offsetX;
     #offsetY;
+    
   
     #isTouchDevice = () => {
       return (('ontouchstart' in window) ||
@@ -128,5 +130,10 @@ class Card {
       if (typeof this.onDislike === 'function' && direction === -1) {
         this.onDislike();
       }
+
+      if(numOfSwipe == 3){
+        console.log('hi');
+      }
+      else{numOfSwipe += 1;}
     }
   }
