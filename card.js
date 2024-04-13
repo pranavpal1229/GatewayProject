@@ -1,5 +1,7 @@
 let numOfSwipe = 0;
-let notification = document.getElementById("messages")
+let notification = document.getElementById("messages");
+let popUp = document.querySelector(".popup");
+let continueButton = document.querySelector(".continue-button")
 class Card {
     constructor({
       imageUrl,
@@ -19,7 +21,6 @@ class Card {
     #offsetX;
     #offsetY;
     
-  
     #isTouchDevice = () => {
       return (('ontouchstart' in window) ||
         (navigator.maxTouchPoints > 0) ||
@@ -143,7 +144,35 @@ class Card {
         notification.style.position = 'absolute';
         notification.style.marginTop = '15px';
         notification.style.marginRight = '7px';
+        popUp.classList.add("open-popup");
+        //popUp.style.visibility = 'visible';
+        //popUp.style.top= "50%";
+        //popUp.transform = "translate(-50%, -50%) scale(1)";
+        confetti();
+        confetti({
+            spread: 180
+          });
+          confetti({
+            particleCount: 200,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+          });
+          confetti({
+            particleCount: 200,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+          });
       }
       else{numOfSwipe += 1;}
     }
   }
+
+  notification.addEventListener(('click'), function turnGreen(){
+    window.location = 'index2.html';
+  })
+
+continueButton.addEventListener('click', function(){
+    popUp.classList.add("close-popup");
+})
